@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MaConnexion {
-    public String url="jdbc:mysql://localhost:3306/pidevers";
+    public String url="jdbc:mysql://localhost:3306/pideversteam";
     public String user="root";
-    public String pwd ="";
+    public String pwd ="hanibal";
     private Connection cnx;
     private static MaConnexion mc;
 
