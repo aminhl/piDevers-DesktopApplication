@@ -38,12 +38,12 @@ public class UtilisateurService implements IService<Utilisateur> {
     }
     @Override
     public void ajouter(Utilisateur utilisateur) throws SQLException {
-       String query = "INSERT INTO UTILISATEUR(id_utilisateur,nom_utilisateur,prenom_utilisateur,email_utilisateur,login_utilisateur," +
-              "pwd_utilisateur,img_utilisateur,rank_utilisateur,numTel_utilisateur,adresse_utilisateur) VALUES(?,?,?,?,?,?,?,?,?,?)";
+      String query = "INSERT INTO UTILISATEUR(id_utilisateur,nom_utilisateur,prenom_utilisateur,email_utilisateur,login_utilisateur," +
+      "mdp_utilisateur,image_utilisateur,rank_utilisateur,telephone_utilisateur,adresse_utilisateur) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
- int x=existe(utilisateur);
-    if (x==0)
-    {
+    int x=existe(utilisateur);
+        if (x==0)
+        {
         try {
             PreparedStatement ste = cnx.prepareStatement(query);
             ste.setInt(1,utilisateur.getIdUtilisateur());
@@ -66,7 +66,7 @@ public class UtilisateurService implements IService<Utilisateur> {
     {
         System.out.println("user already exists");
     }
-    }
+}
 
     @Override
     public List<Utilisateur> afficher() {
@@ -76,21 +76,21 @@ public class UtilisateurService implements IService<Utilisateur> {
             PreparedStatement ste = cnx.prepareStatement(query);
             ste.executeQuery();
             ResultSet rs = ste.executeQuery(query);
-        while(rs.next())
-        {
-            Utilisateur utilisateur = new Utilisateur();
-            utilisateur.setIdUtilisateur(rs.getInt("id_utilisateur"));
-            utilisateur.setNomUtilisateur(rs.getString("nom_utilisateur"));
-            utilisateur.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
-            utilisateur.setEmailUtilisateur(rs.getString("email_utilisateur"));
-            utilisateur.setLoginUtilisateur(rs.getString("login_utilisateur"));
-            utilisateur.setMot_de_passeUtilisateur(rs.getString("pwd_utilisateur"));
-            utilisateur.setImgUtilisateur(rs.getString("img_utilisateur"));
-            utilisateur.setRankUtilisateur(rs.getInt("rank_utilisateur"));
-            utilisateur.setNumero_telephoneUtilisateur(rs.getString("numTel_utilisateur"));
-            utilisateur.setAdresseUtilisateur(rs.getString("adresse_utilisateur"));
-            users.add(utilisateur);
-        }
+            while(rs.next())
+            {
+                Utilisateur utilisateur = new Utilisateur();
+                utilisateur.setIdUtilisateur(rs.getInt("id_utilisateur"));
+                utilisateur.setNomUtilisateur(rs.getString("nom_utilisateur"));
+                utilisateur.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
+                utilisateur.setEmailUtilisateur(rs.getString("email_utilisateur"));
+                utilisateur.setLoginUtilisateur(rs.getString("login_utilisateur"));
+                utilisateur.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
+                utilisateur.setImgUtilisateur(rs.getString("image_utilisateur"));
+                utilisateur.setRankUtilisateur(rs.getInt("rank_utilisateur"));
+                utilisateur.setNumero_telephoneUtilisateur(rs.getString("telephone_utilisateur"));
+                utilisateur.setAdresseUtilisateur(rs.getString("adresse_utilisateur"));
+                users.add(utilisateur);
+            }
         }
         catch (SQLException e)
         {
@@ -106,10 +106,10 @@ public class UtilisateurService implements IService<Utilisateur> {
                 "', prenom_utilisateur = '" + utilisateur.getPrenomUtilisateur() +
                 "', email_utilisateur = '" + utilisateur.getEmailUtilisateur() +
                 "', login_utilisateur = '" + utilisateur.getLoginUtilisateur() +
-                "', pwd_utilisateur= '" + utilisateur.getMot_de_passeUtilisateur() +
-                "', img_utilisateur = '" + utilisateur.getImgUtilisateur() +
+                "', mdp_utilisateur= '" + utilisateur.getMot_de_passeUtilisateur() +
+                "', image_utilisateur = '" + utilisateur.getImgUtilisateur() +
                 "', rank_utilisateur = '" + utilisateur.getRankUtilisateur() +
-                "', numTel_utilisateur = '" + utilisateur.getNumero_telephoneUtilisateur() +
+                "', telephone_utilisateur = '" + utilisateur.getNumero_telephoneUtilisateur() +
                 "', adresse_utilisateur = '" + utilisateur.getAdresseUtilisateur() +
                 "' WHERE id_utilisateur = " + utilisateur.getIdUtilisateur() + "";
         try{
@@ -121,7 +121,6 @@ public class UtilisateurService implements IService<Utilisateur> {
             System.out.println(e.getMessage());
         }
     }
-
 
     @Override
     public void supprimer(Utilisateur utilisateur) {
