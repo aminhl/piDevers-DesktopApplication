@@ -6,23 +6,45 @@ public class Reservation {
     private int idCamp;
     private int idHotel;
     private int idUs;
+    private int idRandonnee;
+    private int idMuseum;
+
+    public int getIdRandonnee() {
+        return idRandonnee;
+    }
+
+    public void setIdRandonnee(int idRandonnee) {
+        this.idRandonnee = idRandonnee;
+    }
+
+    public int getIdMuseum() {
+        return idMuseum;
+    }
+
+    public void setIdMuseum(int idMuseum) {
+        this.idMuseum = idMuseum;
+    }
 
     public Reservation() {
     }
 
-    public Reservation(int idEvent, int idCamp, int idHotel, int idUs) {
+    public Reservation(int idEvent, int idCamp, int idHotel, int idUs,int idRandonnee,int idMuseum) {
         this.idEvent = idEvent;
         this.idCamp = idCamp;
         this.idHotel = idHotel;
         this.idUs = idUs;
+        this.idRandonnee=idRandonnee;
+        this.idMuseum=idMuseum;
     }
 
-    public Reservation(int idReservation, int idEvent, int idCamp, int idHotel, int idUs) {
+    public Reservation(int idReservation, int idEvent, int idCamp, int idHotel, int idUs,int idMuseum,int idRandonnee) {
         this.idReservation = idReservation;
         this.idEvent = idEvent;
         this.idCamp = idCamp;
         this.idHotel = idHotel;
         this.idUs = idUs;
+        this.idRandonnee=idRandonnee;
+        this.idMuseum=idMuseum;
     }
 
     public int getIdReservation() {
