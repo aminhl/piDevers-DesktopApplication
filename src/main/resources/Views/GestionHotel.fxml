@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestionHotelController">
+    <AnchorPane layoutY="7.0" prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+        <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../styles/style.css">
+         <children>
+            <Label fx:id="LbLogUser" layoutX="137.0" layoutY="22.0" text="Raed Sdiri" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Circle fx:id="idimg" fill="DODGERBLUE" layoutX="303.0" layoutY="36.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+        </Pane>
+        <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;">
+                <Button contentDisplay="TOP" layoutY="12.0" mnemonicParsing="false" onAction="#switchToMainFront" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@../styles/style.css" text="MainPage" textFill="#a868a0">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../imgs/cat.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </Pane>
+        </VBox>
+        <AnchorPane layoutX="102.0" layoutY="85.0" prefHeight="531.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@../styles/style.css">
+            <TabPane layoutY="-16.0" prefHeight="438.0" prefWidth="861.0" tabClosingPolicy="UNAVAILABLE">
+                <Tab text="Hotels">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="292.0" prefWidth="791.0">
+                        <padding>
+                            <Insets left="20.0" />
+                        </padding>
+                        <HBox layoutY="14.0" prefHeight="53.0" prefWidth="841.0" spacing="40.0">
+                            <Label text="Gestion Hotels" textFill="YELLOW">
+                                <font>
+                                    <Font size="26.0" />
+                                </font>
+                            </Label>
+                         
+                              </HBox>
+                  <Label alignment="TOP_RIGHT" layoutX="22.0" layoutY="67.0" opacity="0.8" text="Recherche :" textFill="#bca941" />
+                  <TextField fx:id="keyWordtextField" layoutX="90.0" layoutY="63.0" prefHeight="25.0" prefWidth="531.0" promptText="Mot-clé..." />
+                  <TableView fx:id="tvHotel" layoutX="22.0" layoutY="117.0" prefHeight="200.0" prefWidth="598.0">
+                    <columns>
+                      <TableColumn fx:id="colNomHotel" prefWidth="75.0" text="Nom" />
+                      <TableColumn fx:id="colEmailHotel" prefWidth="75.0" text="Email" />
+                        <TableColumn fx:id="colAdresseHotel" prefWidth="75.0" text="Adresse" />
+                        <TableColumn fx:id="colTelHotel" prefWidth="75.0" text="Telephone" />
+                        <TableColumn fx:id="colPrixHotel" prefWidth="75.0" text="Prix" />
+                        <TableColumn fx:id="colEtoilesHotel" prefWidth="75.0" text="Etoiles" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Button fx:id="btnAjoterHotel" layoutX="38.0" layoutY="348.0" mnemonicParsing="false" onAction="#openAjouterHotelBullet" text="Ajouter Hotel" />
+                  <Button fx:id="btnModifierHotel" layoutX="206.0" layoutY="348.0" mnemonicParsing="false" onAction="#modifierHotel" text="Modifier Hotel" />
+                  <Button fx:id="bntActualiser" layoutX="485.0" layoutY="348.0" mnemonicParsing="false" onAction="#showHotels" text="Actualiser" />
+                  <Button fx:id="btnSuppHotel" layoutX="335.0" layoutY="348.0" mnemonicParsing="false" onAction="#supprimerHotel" text="Supprimer Hotel" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="200.0" layoutX="641.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="200.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.6919431279620853" startY="0.2843601895734597">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.4437711238861084" green="0.27720001339912415" blue="0.7699999809265137" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.17653508484363556" green="0.7616227865219116" blue="0.9078947305679321" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <Button fx:id="bntRemise" layoutX="707.0" layoutY="281.0" mnemonicParsing="false" onAction="#randomOff" styleClass="button_remise" text="Remise" />
+                  <Label layoutX="684.0" layoutY="117.0" text="Offre Special " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="647.0" layoutY="180.0" text="Hotel:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="647.0" layoutY="213.0" text="Prix :" textFill="#fff9f9">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="randomHot" layoutX="693.0" layoutY="181.0" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="randomPrix" layoutX="693.0" layoutY="214.0" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="offreLabel" layoutX="715.0" layoutY="143.0" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tauxS" layoutX="758.0" layoutY="242.0" style="-fx-border-width: 3px;" textFill="#95ff6e">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="648.0" layoutY="242.0" text="Votre Reduction:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                    </AnchorPane>
+                </Tab>
+                <Tab fx:id="tabRes" onSelectionChanged="#showReservationHot" text="Reservations">
+                    <AnchorPane prefHeight="507.0" prefWidth="636.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+                        <AnchorPane layoutX="14.0" layoutY="-16.0" prefHeight="500.0" prefWidth="619.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../styles/style.css">
+                            <Label layoutX="14.0" layoutY="27.0" text="Gestion" textFill="WHITE">
+                                <font>
+                                    <Font size="26.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="114.0" layoutY="27.0" text="Reservation" textFill="#fff600">
+                                <font>
+                                    <Font size="26.0" />
+                                </font>
+                            </Label>
+                            <VBox layoutX="294.0" layoutY="118.0" prefHeight="46.0" prefWidth="230.0" spacing="9.0" />
+                            <Button fx:id="btnAjouterReservationHot" layoutX="184.0" layoutY="172.0" mnemonicParsing="false" onAction="#ajouterReservationHot" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #131022; -fx-border-radius: 10; -fx-border-color: #fff;" text="Participer" />
+                            <Button fx:id="btnSupprimerSupprimerHot" layoutX="294.0" layoutY="172.0" mnemonicParsing="false" onAction="#supprimerReservationHot" prefHeight="28.0" prefWidth="86.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10;" text="Supprimer" />
+                            <TableView fx:id="tvReservationhot" layoutX="44.0" layoutY="226.0" prefHeight="219.0" prefWidth="500.0">
+                                <columns>
+                                    <TableColumn fx:id="colReservationNomH" prefWidth="75.0" text="Hotel" />
+                                    <TableColumn fx:id="colReservationadresseH" prefWidth="81.0" text="Adresse" />
+                                    <TableColumn fx:id="colReservationTelephoneH" prefWidth="76.0" text="Telephone" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                            </TableView>
+                            <VBox layoutX="114.0" layoutY="122.0" prefHeight="46.0" prefWidth="70.0" spacing="15.0" />
+                            <ComboBox fx:id="comboNomhot" layoutX="167.0" layoutY="91.0" onAction="#handleMouseAction" prefHeight="27.0" prefWidth="254.0" />
+                            <Label layoutX="104.0" layoutY="95.0" prefHeight="20.0" prefWidth="46.0" text="Hotel" textFill="WHITE">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Label>
+                        </AnchorPane>
+                    </AnchorPane>
+                </Tab>
+            </TabPane>
+            <Label layoutX="192.0" layoutY="21.0" textFill="#fff600">
+                <font>
+                    <Font size="26.0" />
+                </font>
+            </Label>
+        </AnchorPane>
+        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../imgs/logo.png" />
+        </ImageView>
+        <Label layoutX="134.0" layoutY="29.0" text="Pidevers-Team" textFill="WHITE">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+    </AnchorPane>
+</AnchorPane>

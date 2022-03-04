@@ -2,27 +2,36 @@ package Entities;
 
 public class Reservation {
     private int idReservation;
-    private int idEvent;
-    private int idCamp;
-    private int idHotel;
-    private int idUs;
+    private Evenement ev;
+    private Camping camping = new Camping() ;
+    private Hotel hotel;
+    private Utilisateur utilisateur=new Utilisateur();
 
-    public Reservation() {
-    }
-
-    public Reservation(int idEvent, int idCamp, int idHotel, int idUs) {
-        this.idEvent = idEvent;
-        this.idCamp = idCamp;
-        this.idHotel = idHotel;
-        this.idUs = idUs;
-    }
-
-    public Reservation(int idReservation, int idEvent, int idCamp, int idHotel, int idUs) {
+    public Reservation(int idReservation, Evenement ev, Camping camping, Utilisateur utilisateur) {
         this.idReservation = idReservation;
-        this.idEvent = idEvent;
-        this.idCamp = idCamp;
-        this.idHotel = idHotel;
-        this.idUs = idUs;
+        this.ev = ev;
+        this.camping = camping;
+        this.utilisateur = utilisateur;
+    }
+
+    public Reservation(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Reservation(int idReservation, Evenement ev, Camping camping, Hotel hotel, Utilisateur utilisateur) {
+        this.idReservation = idReservation;
+        this.ev = ev;
+        this.camping = camping;
+        this.hotel = hotel;
+        this.utilisateur = utilisateur;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 
     public int getIdReservation() {
@@ -33,46 +42,40 @@ public class Reservation {
         this.idReservation = idReservation;
     }
 
-    public int getIdEvent() {
-        return idEvent;
+    public Evenement getEv() {
+        return ev;
     }
 
-    public void setIdEvent(int idEvent) {
-        this.idEvent = idEvent;
+    public void setEv(Evenement ev) {
+        this.ev = ev;
     }
 
-    public int getIdCamp() {
-        return idCamp;
+    public Camping getCamping() {
+        return camping;
     }
 
-    public void setIdCamp(int idCamp) {
-        this.idCamp = idCamp;
+    public void setCamping(Camping camping) {
+        this.camping = camping;
     }
 
-    public int getIdHotel() {
-        return idHotel;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public void setIdHotel(int idHotel) {
-        this.idHotel = idHotel;
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
-    public int getIdUs() {
-        return idUs;
-    }
-
-    public void setIdUs(int idUs) {
-        this.idUs = idUs;
+    public Reservation() {
     }
 
     @Override
     public String toString() {
         return "Reservation{" +
                 "idReservation=" + idReservation +
-                ", idEvent=" + idEvent +
-                ", idCamp=" + idCamp +
-                ", idHotel=" + idHotel +
-                ", idUs=" + idUs +
+                ", ev=" + ev +
+                ", camping=" + camping +
+                ", utilisateur=" + utilisateur +
                 '}';
     }
 }

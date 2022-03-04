@@ -1,24 +1,23 @@
 package Services;
 
 import Entities.Camping;
-import Entities.Evenement;
 import Entities.Reservation;
 import Tools.MaConnexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.util.List;
 
 public class ReservationCpService implements IService<Reservation>{
     Connection cnx = MaConnexion.getInstance().getCnx();
 
     @Override
     public void ajouter(Reservation reservation) {
-        String query = "INSERT INTO RESERVATION(id_event,id_camp,id_hotel,id_us) VALUES(0,?,0,30)";
+        String query = "INSERT INTO RESERVATION(id_camp,id_us) VALUES(?,?)";
         try {
             PreparedStatement ste = cnx.prepareStatement(query);
-            ste.setInt(1,reservation.getIdCamp());
+            ste.setInt(1,reservation.getCamping().getIdCamping());
+            ste.setInt(2,reservation.getUtilisateur().getIdUtilisateur());
             ste.executeUpdate();
             System.out.println("Participation Camping Added Successfully");
         } catch (SQLException e){
@@ -55,7 +54,7 @@ public class ReservationCpService implements IService<Reservation>{
 
     @Override
     public void supprimer(Reservation reservation) {
-        String query = "DELETE FROM RESERVATION WHERE id_camp = " + reservation.getIdCamp() + "";
+        String query = "DELETE FROM RESERVATION WHERE id_camp = " + reservation.getCamping().getIdCamping() + " limit 1";
         try{
             Statement ste = cnx.createStatement();
             ste.executeUpdate(query);
@@ -95,5 +94,25 @@ public class ReservationCpService implements IService<Reservation>{
             System.out.println(e.getMessage());
         }
         return idCp;
+    }
+    public Camping retreiveCp(String s){
+        Camping Cp =new Camping();
+        String query = "SELECT * FROM CAMPING WHERE nom_camping = '" + s + "'";
+        try{
+            Statement ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(query);
+            while(rs.next())
+            {
+                Cp.setIdCamping(rs.getInt("id_camping"));
+                Cp.setNomCamping(rs.getString("nom_camping"));
+                Cp.setAdresseCamping(rs.getString("adresse_camping"));
+                Cp.setImageCamping(rs.getString("image_camping"));
+                Cp.setTelephoneCamping(rs.getString("telephone_camping"));
+                Cp.setRatingCamping(rs.getFloat("rating_camping"));
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return Cp;
     }
 }

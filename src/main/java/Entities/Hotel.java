@@ -1,13 +1,13 @@
 package Entities;
 
 public class Hotel {
-    private int idHotel;
+    private Integer idHotel;
     private String nomHotel;
     private String adresseHotel;
     private String emailHotel;
-    private int etoileHotel;
+    private Integer etoileHotel;
     private String telephoneHotel;
-    private float prixHotel;
+    private Float prixHotel;
     private String imageHotel;
 
     public Hotel() {
@@ -66,7 +66,7 @@ public class Hotel {
         this.emailHotel = emailHotel;
     }
 
-    public int getEtoileHotel() {
+    public Integer getEtoileHotel() {
         return etoileHotel;
     }
 
@@ -90,7 +90,7 @@ public class Hotel {
         this.imageHotel = imageHotel;
     }
 
-    public float getPrixHotel() {
+    public Float getPrixHotel() {
         return prixHotel;
     }
 

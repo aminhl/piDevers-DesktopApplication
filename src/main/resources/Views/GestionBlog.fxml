@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestionBlogController">
+    <children>
+        <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+            <children>
+                <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../styles/style.css">
+               <children>
+                  <Label fx:id="LbLogUser" layoutX="126.0" layoutY="32.0" text="Raed Sdiri" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Circle fx:id="idimg1" fill="DODGERBLUE" layoutX="292.0" layoutY="46.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+                </Pane>
+                <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;">
+                            <children>
+                                <Button contentDisplay="TOP" layoutY="12.0" mnemonicParsing="false" onAction="#switchToMainFront" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@../styles/style.css" text="MainPage" textFill="#a868a0">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../imgs/cat.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children></Pane>
+                    </children>
+                </VBox>
+                <AnchorPane layoutX="91.0" layoutY="100.0" prefHeight="509.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@../styles/style.css">
+                    <children>
+                        <Label layoutX="31.0" layoutY="16.0" text="Gestion" textFill="WHITE">
+                            <font>
+                                <Font size="26.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="128.0" layoutY="16.0" text="Blog" textFill="#fff600">
+                            <font>
+                                <Font size="26.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" endY="31.199996948242188" layoutX="343.0" layoutY="-15.0" startX="100.0" startY="363.20001220703125" stroke="#b9b1b1" strokeDashOffset="2.0" />
+                        <VBox layoutX="13.0" layoutY="88.0" prefHeight="196.0" prefWidth="112.0" spacing="15.0">
+                            <children>
+                                <Label text="Titre " textFill="WHITE">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Description" textFill="WHITE">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Categorie" textFill="WHITE">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Utilisateur" textFill="WHITE" visible="false">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="idimg" text="Image" textFill="WHITE" visible="false">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="146.0" layoutY="85.0" prefHeight="166.0" prefWidth="258.0" spacing="9.0">
+                            <children>
+                                <TextField fx:id="titre" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10;" />
+                                <TextField fx:id="desc" />
+                                <ComboBox fx:id="idC" prefHeight="27.0" prefWidth="261.0" />
+                                <TextField fx:id="idU" visible="false" />
+                                <Button fx:id="imageBlogBtn" mnemonicParsing="false" onAction="#importImageBlog" prefHeight="27.0" prefWidth="254.0" style="-fx-background-color: #131022; -fx-border-radius: 10; -fx-border-color: #fff;" text="Ajouter l'image" textFill="WHITE" />
+                                <TextField fx:id="img" prefHeight="26.0" prefWidth="178.0" visible="false" />
+                            </children>
+                        </VBox>
+                        <Button fx:id="submit" layoutX="75.0" layoutY="289.0" mnemonicParsing="false" onAction="#addA" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10;" text="Ajouter" textFill="WHITE" />
+                        <Button fx:id="submit1" layoutX="169.0" layoutY="290.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10;" text="Modifier" textFill="WHITE" />
+                        <Button fx:id="submit11" layoutX="261.0" layoutY="290.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #131022; -fx-border-radius: 10; -fx-border-color: #fff;" text="Supprimer" textFill="WHITE" />
+                        <TableView fx:id="table_article" layoutX="454.0" layoutY="25.0" onMouseClicked="#handleMouseAction" prefHeight="307.0" prefWidth="405.0">
+                            <columns>
+                                <TableColumn fx:id="col_id" prefWidth="45.33331298828125" text="id" />
+                                <TableColumn fx:id="col_titre" prefWidth="51.46673583984375" text="Titre" />
+                                <TableColumn fx:id="col_desc" prefWidth="83.73333740234375" text="Description" />
+                                <TableColumn fx:id="col_date" prefWidth="43.7333984375" text="Date" />
+                                <TableColumn fx:id="col_cat" prefWidth="74.6666259765625" text="id categorie" />
+                                <TableColumn fx:id="col_us" prefWidth="93.33331298828125" text="id utilisateur" />
+                            </columns>
+                        </TableView>
+                        <TextArea fx:id="comment" layoutX="495.0" layoutY="402.0" prefHeight="71.0" prefWidth="278.0" />
+                        <Label layoutX="296.0" layoutY="423.0" prefHeight="20.0" prefWidth="230.0" text="Ajouter  un commentaire" textFill="WHITE">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="789.0" layoutY="426.0" mnemonicParsing="false" onAction="#addC" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #131022; -fx-border-radius: 10; -fx-border-color: #fff;" text="Ajouter" textFill="WHITE" />
+                        <Button fx:id="show" layoutX="52.0" layoutY="448.0" mnemonicParsing="false" onAction="#switchScene" prefHeight="27.0" prefWidth="181.0" style="-fx-background-color: #131022; -fx-border-radius: 10; -fx-border-color: #fff;" text="Afficher les commentaires" textFill="WHITE" />
+                  <Label fx:id="warning" layoutX="132.0" layoutY="358.0" textFill="RED" />
+                  <TextField fx:id="id" disable="true" layoutX="333.0" layoutY="54.0" opacity="0.0" prefHeight="26.0" prefWidth="63.0" />
+                  <ToggleButton fx:id="like" layoutX="541.0" layoutY="353.0" mnemonicParsing="false" onAction="#likedislike" prefHeight="27.0" prefWidth="85.0" text="Like">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupLike" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="dislike" layoutX="646.0" layoutY="353.0" mnemonicParsing="false" onAction="#likedislike" prefHeight="27.0" prefWidth="85.0" text="Dislike" toggleGroup="$groupLike" />
+                  <Label fx:id="commentLabel" layoutX="198.0" layoutY="372.0" textFill="#00ff1a" />
+                    </children>
+                </AnchorPane>
+                <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../imgs/logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="134.0" layoutY="29.0" text="Pidevers-Team" textFill="WHITE">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

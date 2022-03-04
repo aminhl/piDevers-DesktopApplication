@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="BoxEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="333.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CardController">
+   <children>
+      <ImageView fx:id="ImageEvenement" fitHeight="123.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../TourismAppv1.1EvCpDone/src/main/resources/imgs/richdad.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER_LEFT" prefHeight="155.0" prefWidth="218.0">
+         <children>
+            <Label fx:id="TitreEvenement" prefHeight="82.0" prefWidth="199.0" text="Trip to Valhala !" textFill="GOLD">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="LieuEvenement" prefHeight="22.0" prefWidth="195.0" text="Kattegat" textFill="GOLD">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</HBox>

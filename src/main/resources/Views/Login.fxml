@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+    <children>
+        <Pane layoutX="11.0" prefHeight="649.0" prefWidth="1098.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="-22.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane layoutX="76.0" layoutY="106.0" />
+                <Pane layoutX="411.0" layoutY="66.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
+                    <children>
+                        <Label layoutX="73.0" layoutY="17.0" text="S'authentifier" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            <Label layoutX="373.0" layoutY="211.0" text="Username" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField id="usernameTextField" fx:id="usernameTextField" layoutX="542.0" layoutY="214.0" />
+            <Label layoutX="373.0" layoutY="264.0" text="Mot de passe" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Button id="loginButton" fx:id="loginButton" layoutX="432.0" layoutY="330.0" mnemonicParsing="false" onAction="#Login" prefHeight="37.0" prefWidth="216.0" text="Se connecter" />
+            <Label layoutX="327.0" layoutY="450.0" text="Vous n'avez pas un compte ?" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <ButtonBar layoutX="557.0" layoutY="422.0" prefHeight="40.0" prefWidth="200.0" />
+            <Button fx:id="registre" layoutX="592.0" layoutY="451.0" mnemonicParsing="false" onAction="#registre" text="Click Here !" />
+            <Label fx:id="ErrorLabel" layoutX="428.0" layoutY="450.0" textFill="RED">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordTextField" layoutX="540.0" layoutY="267.0" />
+            <Label layoutX="611.0" layoutY="601.0" text="Vous pouvez continuer en tant que visiteur" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="Next" layoutX="969.0" layoutY="601.0" mnemonicParsing="false" text="Next" />
+            <Label layoutX="326.0" layoutY="386.0" text="Mot de passe oublié ?" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="forgotpassword" layoutX="593.0" layoutY="387.0" mnemonicParsing="false" onAction="#forgotpassword" text="Click Here !" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

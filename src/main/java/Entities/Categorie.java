@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.Objects;
+
 public class Categorie {
 
     private int idCategorie;
@@ -28,6 +30,19 @@ public class Categorie {
 
     public void setNomCategorie(String nomCategorie) {
         this.nomCategorie = nomCategorie;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Categorie categorie = (Categorie) o;
+        return idCategorie == categorie.idCategorie && nomCategorie.equals(categorie.nomCategorie);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idCategorie, nomCategorie);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package Entities;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Evenement {
     private int idEvenement;
@@ -8,13 +8,14 @@ public class Evenement {
     private String lieuEvenement;
     private String typeEvenement;
     private String descriptionEvenement;
-    private String dateEvenement;
+    private Date dateEvenement;
     private String imageEvenement;
 
     public Evenement() {
     }
 
-    public Evenement(String titreEvenement, String lieuEvenement, String typeEvenement, String descriptionEvenement, String dateEvenement, String imageEvenement) {
+    public Evenement(String titreEvenement, String lieuEvenement, String typeEvenement, String descriptionEvenement,
+                     Date dateEvenement, String imageEvenement) {
         this.titreEvenement = titreEvenement;
         this.lieuEvenement = lieuEvenement;
         this.typeEvenement = typeEvenement;
@@ -23,7 +24,8 @@ public class Evenement {
         this.imageEvenement = imageEvenement;
     }
 
-    public Evenement(int idEvenement, String titreEvenement, String lieuEvenement, String typeEvenement, String descriptionEvenement, String dateEvenement, String imageEvenement) {
+    public Evenement(int idEvenement, String titreEvenement, String lieuEvenement, String typeEvenement,
+                     String descriptionEvenement, Date dateEvenement, String imageEvenement) {
         this.idEvenement = idEvenement;
         this.titreEvenement = titreEvenement;
         this.lieuEvenement = lieuEvenement;
@@ -73,11 +75,11 @@ public class Evenement {
         this.descriptionEvenement = descriptionEvenement;
     }
 
-    public String getDateEvenement() {
+    public Date getDateEvenement() {
         return dateEvenement;
     }
 
-    public void setDateEvenement(String dateEvenement) {
+    public void setDateEvenement(Date dateEvenement) {
         this.dateEvenement = dateEvenement;
     }
 

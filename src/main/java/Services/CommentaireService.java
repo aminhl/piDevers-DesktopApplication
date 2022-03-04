@@ -12,15 +12,14 @@ public class CommentaireService implements IService<Commentaire>{
     Connection cnx = MaConnexion.getInstance().getCnx();
     @Override
     public void ajouter(Commentaire Commentaire) {
-        String query = "INSERT INTO commentaire(auteur_commentaire,contenu_commentaire,date_commentaire,etat_commentaire,id_article,id_utilisateur)" + "VALUES(?,?,?,?,?,?)";
+        String query = "INSERT INTO commentaire(contenu_commentaire,date_commentaire,etat_commentaire,id_article,id_utilisateur)" + "VALUES(?,?,?,?,?)";
         try{
             PreparedStatement ste = cnx.prepareStatement(query);
-            ste.setString(1,Commentaire.getAuteurCommentaire());
-            ste.setString(2,Commentaire.getContenuCommentaire());
-            ste.setString(3,Commentaire.getDateCommentaire());
-            ste.setString(4,Commentaire.getEtatCommentaire());
-            ste.setInt(5,Commentaire.getIdArticle());
-            ste.setInt(6,Commentaire.getIdUtilisateur());
+            ste.setString(1,Commentaire.getContenuCommentaire());
+            ste.setString(2,Commentaire.getDateCommentaire());
+            ste.setInt(3,Commentaire.getEtatCommentaire());
+            ste.setInt(4,Commentaire.getIdArticle());
+            ste.setInt(5,Commentaire.getIdUtilisateur());
 
 
             ste.executeUpdate();
@@ -41,12 +40,11 @@ public class CommentaireService implements IService<Commentaire>{
             while (rs.next()){
                 Commentaire commentaire = new Commentaire();
                 commentaire.setIdCommentaire(rs.getInt("id_commentaire"));
-                commentaire.setAuteurCommentaire(rs.getString("auteur_commentaire"));
                 commentaire.setContenuCommentaire(rs.getString("contenu_commentaire"));
                 commentaire.setDateCommentaire(rs.getString("date_commentaire"));
-                commentaire.setEtatCommentaire(rs.getString("etat_commentaire"));
-                commentaire.setIdArticle(rs.getInt("id_article"));
-                commentaire.setIdUtilisateur(rs.getInt("id_utilisateur"));
+                //commentaire.setEtatCommentaire(rs.getInt("etat_commentaire"));
+                commentaire.setArticle(commentaire.setIdArticle(rs.getInt("id_article")));
+                commentaire.setUtilisateur(commentaire.setIdUtilisateur(rs.getInt("id_utilisateur")));
 
                 listCommentaires.add(commentaire);
             }
@@ -59,8 +57,7 @@ public class CommentaireService implements IService<Commentaire>{
 
     @Override
     public void modifier(Commentaire commentaire) {
-        String query = "UPDATE commentaire SET contenu_commentaire = '" + commentaire.getContenuCommentaire()+"test test" +
-                "', etat_commentaire = '" + commentaire.getEtatCommentaire() +
+        String query = "UPDATE commentaire SET contenu_commentaire = '" + commentaire.getContenuCommentaire()+
                 "' WHERE id_commentaire = "+commentaire.getIdCommentaire()+"";
         try{
             Statement ste = cnx.createStatement();

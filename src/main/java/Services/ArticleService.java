@@ -20,8 +20,8 @@ public class ArticleService implements IService<Article>{
             ste.setString(2,article.getDescriptionArticle());
             ste.setString(3,article.getImageArticle());
             ste.setString(4, article.getDateArticle());
-            ste.setInt(5, article.getidCategorie());
-            ste.setInt(6, article.getidUtilisateur());
+            ste.setInt(5, article.getIdCategorie());
+            ste.setInt(6, article.getIdUtilisateur());
 
             ste.executeUpdate();
             System.out.println("article Added Successfully");
@@ -43,10 +43,10 @@ public class ArticleService implements IService<Article>{
                 article.setIdArticle(rs.getInt("id_article"));
                 article.setTitreArticle(rs.getString("titre_article"));
                 article.setDescriptionArticle(rs.getString("description_article"));
-                article.setImageArticle(rs.getString("image_article"));
+                //article.setImageArticle(rs.getString("image_article"));
                 article.setDateArticle(rs.getString("date_article"));
-                article.setIdCategorie(rs.getInt("id_categorie"));
-                article.setIdUtilisateur(rs.getInt("id_utilisateur"));
+                article.setCategorie(article.setIdCategorie(rs.getInt("id_categorie")));
+                article.setUtilisateur(article.setIdUtilisateur(rs.getInt("id_utilisateur")));
 
                 listArticles.add(article);
             }
@@ -60,7 +60,7 @@ public class ArticleService implements IService<Article>{
     @Override
     public void modifier(Article article) {
         String query = "UPDATE article SET titre_article = '" + article.getTitreArticle() + "', description_article = '" +
-                article.getDescriptionArticle() + "', image_article = '" + article.getImageArticle() +
+                article.getDescriptionArticle() + "', id_categorie = '" + article.getIdCategorie() +
                 "' WHERE id_article = " + article.getIdArticle() + "";
         try{
             Statement ste = cnx.createStatement();

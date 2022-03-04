@@ -26,7 +26,7 @@ public class MuseumServices implements IService<Museum> {
     @Override
     public void ajouter(Museum museum) {
         try {
-            PreparedStatement req = c.prepareStatement("insert into museum(nom_museum," +
+            PreparedStatement req = c.prepareStatement("insert into musuem(nom_museum," +
                     "locallisation_museum," +
                     "created_at," +
                     "updated_at," +
@@ -48,7 +48,7 @@ public class MuseumServices implements IService<Museum> {
     public List<Museum> afficher() {
         List<Museum> listMuseum = new ArrayList<>();
         try {
-            PreparedStatement req = c.prepareStatement("select * from museum  ");
+            PreparedStatement req = c.prepareStatement("select * from musuem  ");
             ResultSet rs = req.executeQuery();
             while (rs.next()) {
                 Museum museum = new Museum();
@@ -72,7 +72,7 @@ public class MuseumServices implements IService<Museum> {
     public void modifier(Museum museum) {
 
         try {
-            PreparedStatement req = c.prepareStatement("update museum set nom_museum=?,locallisation_museum=? ,updated_at=?,rating_museum=?,image_museum=? " +
+            PreparedStatement req = c.prepareStatement("update musuem set nom_museum=?,locallisation_museum=? ,updated_at=?,rating_museum=?,image_museum=? " +
                     "where id_museum= '"+museum.getMuseumId()+"'");
             req.setString(1, museum.getNomMuseum());
             req.setInt(2,museum.getLocalisationMuseum());
@@ -88,7 +88,7 @@ public class MuseumServices implements IService<Museum> {
     @Override
     public void supprimer(Museum museum) {
         try {
-            PreparedStatement req = c.prepareStatement("delete from museum where id_museum = ? ");
+            PreparedStatement req = c.prepareStatement("delete from musuem where id_museum = ? ");
             req.setInt(1, museum.getMuseumId());
 
             req.executeUpdate();

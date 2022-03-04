@@ -1,5 +1,7 @@
 package Entities;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 public class Utilisateur {
     private int idUtilisateur;
     private String nomUtilisateur;
@@ -107,7 +109,7 @@ public class Utilisateur {
     }
 
     public void setMot_de_passeUtilisateur(String mot_de_passeUtilisateur) {
-        this.mot_de_passeUtilisateur = mot_de_passeUtilisateur;
+        this.mot_de_passeUtilisateur = DigestUtils.sha1Hex(mot_de_passeUtilisateur);
     }
 
     public void setImgUtilisateur(String imgUtilisateur) {

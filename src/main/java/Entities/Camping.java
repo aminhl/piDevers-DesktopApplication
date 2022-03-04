@@ -6,23 +6,29 @@ public class Camping {
     private String adresseCamping;
     private String imageCamping;
     private String telephoneCamping;
+    private float ratingCamping;
+    private String descriptionCamping;
 
     public Camping() {
     }
 
-    public Camping(String nomCamping, String adresseCamping, String imageCamping, String telephoneCamping) {
+    public Camping(String nomCamping, String adresseCamping, String imageCamping, String telephoneCamping, float ratingCamping, String descriptionCamping) {
         this.nomCamping = nomCamping;
         this.adresseCamping = adresseCamping;
         this.imageCamping = imageCamping;
         this.telephoneCamping = telephoneCamping;
+        this.ratingCamping = ratingCamping;
+        this.descriptionCamping = descriptionCamping;
     }
 
-    public Camping(int idCamping, String nomCamping, String adresseCamping, String imageCamping, String telephoneCamping) {
+    public Camping(int idCamping, String nomCamping, String adresseCamping, String imageCamping, String telephoneCamping, float ratingCamping, String descriptionCamping) {
         this.idCamping = idCamping;
         this.nomCamping = nomCamping;
         this.adresseCamping = adresseCamping;
         this.imageCamping = imageCamping;
         this.telephoneCamping = telephoneCamping;
+        this.ratingCamping = ratingCamping;
+        this.descriptionCamping = descriptionCamping;
     }
 
     public int getIdCamping() {
@@ -65,6 +71,22 @@ public class Camping {
         this.telephoneCamping = telephoneCamping;
     }
 
+    public float getRatingCamping() {
+        return ratingCamping;
+    }
+
+    public void setRatingCamping(float ratingCamping) {
+        this.ratingCamping = ratingCamping;
+    }
+
+    public String getDescriptionCamping() {
+        return descriptionCamping;
+    }
+
+    public void setDescriptionCamping(String descriptionCamping) {
+        this.descriptionCamping = descriptionCamping;
+    }
+
     @Override
     public String toString() {
         return "Camping{" +
@@ -73,6 +95,8 @@ public class Camping {
                 ", adresseCamping='" + adresseCamping + '\'' +
                 ", imageCamping='" + imageCamping + '\'' +
                 ", telephoneCamping='" + telephoneCamping + '\'' +
+                ", ratingCamping=" + ratingCamping +
+                ", descriptionCamping='" + descriptionCamping + '\'' +
                 '}';
     }
 }
